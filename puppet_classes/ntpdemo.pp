@@ -1,25 +1,25 @@
 # Definition of a class
-# Class: ntpdemo
+# Class: chronydemo
 #
 #
-class ntpdemo {
+class chronydemo {
 
-# Installing NTP Package
+# Installing Chrony Package
   package { 'chrony':
     ensure => 'present'
   }
 
-# Configuring NTP configuration file
+# Configuring Chrony configuration file
   file { '/etc/chrony.conf':
     ensure  => 'present',
     content => 'allow 10.0.1.0/24',
   }
 
-# Starting NTP services
+# Starting Chrony services
   service { 'chronyd':
     ensure => 'running',
   }
 }
 
 # Declaration of a class
-include ntpdemo
+include chronydemo
